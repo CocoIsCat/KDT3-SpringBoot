@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.website.mapper.BuyMapper">
+    <select id="checkTrade" resultType="com.example.website.dto.Trade" parameterType="string">
+        select
+            *
+        from
+            buy
+        where
+            email = #{email}
+    </select>
+
+    <insert id="insertTrade" parameterType="com.example.website.dto.Trade">
+        insert into
+            buy (email, coinId, name, price, amount, total)
+        values
+            (#{email}, #{coinId}, #{name}, #{price}, #{amount}, #{total})
+    </insert>
+</mapper>
